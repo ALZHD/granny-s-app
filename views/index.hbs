@@ -1,0 +1,130 @@
+<ul class='nav nav-tabs mt-3' id='myTab' role='tablist'>
+  <li class='nav-item' role='presentation'>
+    <button
+      class='nav-link active'
+      id='home-tab'
+      data-bs-toggle='tab'
+      data-bs-target='#home-tab-pane'
+      type='button'
+      role='tab'
+      aria-controls='home-tab-pane'
+      aria-selected='true'
+    >Регистрация</button>
+  </li>
+  <li class='nav-item' role='presentation'>
+    <button
+      class='nav-link'
+      id='profile-tab'
+      data-bs-toggle='tab'
+      data-bs-target='#profile-tab-pane'
+      type='button'
+      role='tab'
+      aria-controls='profile-tab-pane'
+      aria-selected='false'
+    >Sign in</button>
+  </li>
+</ul>
+<div class='tab-content' id='myTabContent'>
+  <div
+    class='tab-pane fade show active'
+    id='home-tab-pane'
+    role='tabpanel'
+    aria-labelledby='home-tab'
+    tabindex='0'
+  >
+    <form action='/signup' method='post'>
+      <div class='mb-3'>
+        <label for='exampleName' class='form-label'>Имя</label>
+        <input
+          name='username'
+          type='text'
+          class='form-control'
+          id='exampleName'
+        />
+      </div>
+      <div class='mb-3'>
+        <label for='exampleInputPassword1' class='form-label'>Почта</label>
+        <input
+          name='email'
+          type='password'
+          class='form-control'
+          id='exampleInputPassword1'
+        />
+      </div>
+       <div class='mb-3'>
+        <label for='exampleInputPassword1' class='form-label'>Пароль</label>
+        <input
+          name='email'
+          type='password'
+          class='form-control'
+          id='exampleInputPassword1'
+        />
+      </div>
+      <div class='row w-25'>
+
+        <div class='mb-3 form-check col'>
+          <input 
+            onmousedown="viewDiv()"
+            value='Rap'
+            name='type'
+            type='radio'
+            class='form-check-input1'
+          />
+          <label class='form-check-label' for='exampleCheck1'>Если ты бабушка, нажми на эту кнопку</label>
+           <div class='mb-3'>
+        <div class="secretclick">
+          <label type='hidden' for='exampleInputPassword1' class='form-label1'>Бабуль, введи, пожалуйста, секретное слово</label>
+        <input
+          name='email'
+          type='password'
+          class='form-control'
+          id='exampleInputPassword1'
+        />
+        </div>
+      </div>
+        </div>
+        <div class='mb-3 form-check col'>
+          <input
+            onmousedown="closeDiv()"
+            value='Rock'
+            name='type'
+            type='radio'
+            class='form-check-input'
+          />
+          <label class='form-check-label' for='exampleCheck1'>Если ты внучка, нажми на эту кнопку</label>
+        </div>
+      </div>
+      <button type='submit' class='btn btn-primary'>Submit</button>
+    </form>
+
+  </div>
+  <div
+    class='tab-pane fade'
+    id='profile-tab-pane'
+    role='tabpanel'
+    aria-labelledby='profile-tab'
+    tabindex='0'
+  >
+    <form action='/signin' method='post'>
+      <div class='mb-3'>
+        <label for='exampleName' class='form-label'>Name</label>
+        <input
+          name='username'
+          type='text'
+          class='form-control'
+          id='exampleName'
+        />
+      </div>
+      <div class='mb-3'>
+        <label for='exampleInputPassword1' class='form-label'>Password</label>
+        <input
+          name='pass'
+          type='password'
+          class='form-control'
+          id='exampleInputPassword1'
+        />
+      </div>
+      <button type='submit' class='btn btn-primary'>Submit</button>
+    </form>
+  </div>
+</div>
