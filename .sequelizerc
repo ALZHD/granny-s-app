@@ -5,3 +5,4 @@ const path = require('path');
  'seeders-path': path.resolve('db', 'seeders'),
  'migrations-path': path.resolve('db', 'migrations')
  };
+ 
