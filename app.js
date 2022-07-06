@@ -5,9 +5,17 @@ require('dotenv').config();
 const path = require('path');
 
 const app = express();
-
+// app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-hbs.registerPartials(path.join(process.env.PWD, 'views', 'particals'));
+hbs.registerPartials(path.join(process.env.PWD, 'views', 'partials'));
+
+app.use(express.urlencoded({ extended: true })); // чтобы парсить форма
+app.use(express.json()); // чтобы парсить json
+app.use(express.static(path.join(__dirname, 'public')));
 const PORT = process.env.PORT || 3001;
+
+app.get('/', (req, res) => {
+  res.render('index');
+});
 
 app.listen(PORT, () => console.log(`Connection on PORT: ${PORT}`));
