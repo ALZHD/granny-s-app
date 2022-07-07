@@ -4,6 +4,7 @@ require('dotenv').config();
 const path = require('path');
 const regofUser = require('./routes/regofUser');
 
+
 const app = express();
 // app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
