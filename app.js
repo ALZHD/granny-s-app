@@ -3,14 +3,33 @@ const hbs = require('hbs');
 require('dotenv').config();
 const path = require('path');
 const regofUser = require('./routes/regofUser');
+const session = require('express-session')
+const sessionFileStore = require('session-file-store')
 
 const app = express();
+const FileStore = sessionFileStore(session);
 // app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(path.join(process.env.PWD, 'views', 'partials'));
 
 app.use(express.urlencoded({ extended: true })); // чтобы парсить форма
 app.use(express.json()); // чтобы парсить json
+app.use(session({
+  name: app.get('session cookie name'),
+  secret: process.env.SESSION_SECRET,
+  store: new FileStore({
+    // Шифрование сессии
+    secret: process.env.SESSION_SECRET,
+  }),
+  // Если true, сохраняет сессию, даже если она не поменялась
+  resave: false,
+  // Если false, куки появляются только при установке req.session
+  saveUninitialized: false,
+  cookie: {
+    // В продакшне нужно "secure: true" для HTTPS
+    secure: process.env.NODE_ENV === 'production',
+  },
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 const PORT = process.env.PORT || 3001;
 
