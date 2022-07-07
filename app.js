@@ -39,6 +39,7 @@ const PORT = process.env.PORT || 3001;
 /* app.get('/', (req, res) => { // чтобы проверить что это работает делаем ручку
   res.render('index'); // при запросе на эту ручку рендерим с index --> npm start (как работает render? Берется все что находится в индексе  и как бы вставляется все в {{{body}}} )
 }); */
+app.use('/')
 app.use('/', indexRouter);
 app.use('/pictures', pictureRouter);
 /* app.use('/', regofUser);  */
