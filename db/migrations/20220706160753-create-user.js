@@ -12,6 +12,7 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
+        unique: true,
       },
       secret: {
         type: Sequelize.TEXT,
@@ -20,14 +21,8 @@ module.exports = {
       pass: {
         type: Sequelize.TEXT,
       },
-      role_id: {
+      role: {
         type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: 'Roles',
-          },
-          key: 'id',
-        },
       },
       createdAt: {
         allowNull: false,
