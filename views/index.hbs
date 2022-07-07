@@ -21,7 +21,7 @@
       role='tab'
       aria-controls='profile-tab-pane'
       aria-selected='false'
-    >Sign in</button>
+    >Авторизация</button>
   </li>
 </ul>
 <div class='tab-content' id='myTabContent'>
@@ -36,28 +36,31 @@
       <div class='mb-3'>
         <label for='exampleName' class='form-label'>Имя</label>
         <input
-          name='username'
+          name='name'
           type='text'
           class='form-control'
           id='exampleName'
+          required
         />
       </div>
       <div class='mb-3'>
         <label for='exampleInputPassword1' class='form-label'>Почта</label>
         <input
           name='email'
-          type='password'
+          type='email'
           class='form-control'
           id='exampleInputPassword1'
+          required
         />
       </div>
        <div class='mb-3'>
         <label for='exampleInputPassword1' class='form-label'>Пароль</label>
         <input
-          name='email'
+          name='pass'
           type='password'
           class='form-control'
           id='exampleInputPassword1'
+          required
         />
       </div>
       <div class='row w-25'>
@@ -65,20 +68,21 @@
         <div class='mb-3 form-check col'>
           <input 
             onmousedown="viewDiv()"
-            value='Rap'
-            name='type'
+            value='granny'
+            name='role'
             type='radio'
-            class='form-check-input1'
+            class='form-check-input'
           />
           <label class='form-check-label' for='exampleCheck1'>Если ты бабушка, нажми на эту кнопку</label>
            <div class='mb-3'>
         <div class="secretclick">
           <label type='hidden' for='exampleInputPassword1' class='form-label1'>Бабуль, введи, пожалуйста, секретное слово</label>
         <input
-          name='email'
-          type='password'
+          name='secret'
+          type='text'
           class='form-control'
-          id='exampleInputPassword1'
+          id='exampleInputPassword'
+          {{!-- required --}}
         />
         </div>
       </div>
@@ -86,8 +90,8 @@
         <div class='mb-3 form-check col'>
           <input
             onmousedown="closeDiv()"
-            value='Rock'
-            name='type'
+            value='gchild'
+            name='role'
             type='radio'
             class='form-check-input'
           />
@@ -107,7 +111,7 @@
   >
     <form action='/signin' method='post'>
       <div class='mb-3'>
-        <label for='exampleName' class='form-label'>Name</label>
+        <label for='exampleName' class='form-label'>Имя</label>
         <input
           name='username'
           type='text'
@@ -116,7 +120,7 @@
         />
       </div>
       <div class='mb-3'>
-        <label for='exampleInputPassword1' class='form-label'>Password</label>
+        <label for='exampleInputPassword1' class='form-label'>Пароль</label>
         <input
           name='pass'
           type='password'
