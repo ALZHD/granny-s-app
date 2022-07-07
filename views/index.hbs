@@ -32,7 +32,7 @@
     aria-labelledby='home-tab'
     tabindex='0'
   >
-    <form action='/signup' method='post'>
+    <form name="form1" action='/signup' method='post'>
       <div class='mb-3'>
         <label for='exampleName' class='form-label'>Имя</label>
         <input
@@ -68,7 +68,7 @@
         <div class='mb-3 form-check col'>
           <input 
             onmousedown="viewDiv()"
-            value='granny'
+            value=1
             name='role'
             type='radio'
             class='form-check-input'
@@ -90,7 +90,7 @@
         <div class='mb-3 form-check col'>
           <input
             onmousedown="closeDiv()"
-            value='gchild'
+            value=2
             name='role'
             type='radio'
             class='form-check-input'
@@ -109,11 +109,11 @@
     aria-labelledby='profile-tab'
     tabindex='0'
   >
-    <form action='/signin' method='post'>
+    <form name="form2" action='/signin' method='post'>
       <div class='mb-3'>
-        <label for='exampleName' class='form-label'>Имя</label>
+        <label for='exampleName' class='form-label'>email</label>
         <input
-          name='username'
+          name='email'
           type='text'
           class='form-control'
           id='exampleName'

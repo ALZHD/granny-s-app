@@ -11,4 +11,4 @@ function closeDiv() {
   document.querySelector('.secretclick').textbox = '';
 }
 
-// buttonRadio.addEventListener('click');
+buttonRadio.addEventListener('click');
