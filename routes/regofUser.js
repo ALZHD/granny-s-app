@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router
-  .route('/signup')
+  .route('/signup')  // 17 делаем роутер , потом создаем базу данных - секуализе рс - инит - постгресс - конф.джс -
   .post((req, res) => {
     console.log(req.body);
     

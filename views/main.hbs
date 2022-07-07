@@ -1,0 +1,25 @@
+<form name='postform'>
+    <div class='mb-3'>
+        <label for='text' class='form-label'>Text</label>
+        <input name='text' type='text' class='form-control' id='text' aria-describedby='emailHelp' />
+    </div>
+    <div class='mb-3'>
+        <label for='title' class='form-label'>Image</label>
+        <input name='url' type='text' class='form-control' id='img' aria-describedby='emailHelp' />
+    </div>
+    <button type='submit' class='btn btn-primary'>Submit</button>
+</form>
+
+<div data-container class='row'>
+    {{#each allPictures}}
+    <div class='col'>
+        <div class='card' style='width: 18rem;'>
+            <img src={{this.url}} class='card-img-top' alt={{this.id}} />
+            <div class='card-body'>
+                <h5 class='card-title'>{{this.text}}</h5>
+                <button data-id={{this.id}} type='button' class='btn btn-danger'>Delete</button>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
