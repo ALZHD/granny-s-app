@@ -12,6 +12,7 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
+        unique: true,
       },
       secret: {
         type: Sequelize.TEXT,
