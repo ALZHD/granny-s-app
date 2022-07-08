@@ -7,3 +7,6 @@ router.get('/', async (req, res) => {
 });
 
 module.exports = router;
+
+
+// img=src`/public/uploads/${img.originalname}`;
