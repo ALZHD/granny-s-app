@@ -5,24 +5,23 @@
 
 <form name='uploadForm' action='main/upload'>
     <div class='mb-3'>
-        <label for='text' class='form-label'>Text</label>
-        <input name='text' type='text' class='form-control' id='text' aria-describedby='emailHelp' />
     </div>
     <div class='mb-3'>
-        <label for='title' class='form-label'>Image</label>
-       <input name="image" type="file"/> <button type="submit">Загрузить картинку</button>
+        <label for='title' class='form-label'>Пожалуйста, загрузите картинку для распознавания</label>
+       <input name="image" type="file"/><button type='submit' class='btn btn-primary'>Submit</button>
     </div>
-    <button type='submit' class='btn btn-primary'>Submit</button>
+    
 </form>
 
 <div data-container class='row'>
     {{#each allPictures}}
-    <div data-col class ='col'>
+    <div data-col class='col'>
         <div class='card' style='width: 18rem;'>
             <img src={{this.url}} class='card-img-top' alt={{this.id}} />
             <div class='card-body'>
                 <h5 class='card-title'>{{this.text}}</h5>
-                <button data-bla={{this.id}} type='button' class='btn btn-danger'>Delete</button>
+                <button  data-delete="true" type='button' class='btn btn-danger'>Delete</button>
+                <button data-audio="true" type='button' class='btn btn-success'>Listen</button>
             </div>
         </div>
     </div>

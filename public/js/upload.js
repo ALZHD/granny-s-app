@@ -17,7 +17,22 @@ if (uploadForm) {
 
 const deleteButton = document.querySelector('[data-container]');
 deleteButton.addEventListener('click', async (e) => {
-  if (e.target.type === 'button') {
+//   console.log(e.target.dataset.delete);
+  if (e.target.dataset?.delete) {
+    try {
+      const response = await fetch('/main/delete');
+      if (response.ok) {
+        const currCard = e.target.closest('[data-col]');
+        currCard.remove();
+      } else {
+        const data = await response.json();
+        alert(data.message);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+  if (e.target.dataset?.audio) {
     try {
       const response = await fetch('/main/delete');
       if (response.ok) {
