@@ -72,6 +72,7 @@ router
       if (await bcrypt.compare(pass, user.pass)) {
         req.session.name = user.name;
         req.session.role = user.role;
+        req.session.user_id = user.id;
         // return res.sendStatus(200);
         // было res.send({})
         return res.send({ message: 'ok' });
