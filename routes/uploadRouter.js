@@ -35,4 +35,13 @@ router.post('/upload', upload.single('image'), async (req, res) => {
   res.json({ message: 'ok' });
 });
 
+router.get('/delete', async (req, res) => {
+  try {
+    await Picture.destroy({ where: { granny_id: req.session.user_id } });
+    res.sendStatus(200);
+  } catch (e) {
+    res.sendStatus(500);
+  }
+});
+
 module.exports = router;
