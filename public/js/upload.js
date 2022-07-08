@@ -9,6 +9,9 @@ if (uploadForm) {
       method: 'POST',
       body: formData,
     });
+    if (response.ok) {
+      window.location.href = 'http://localhost:3000/main';
+    }
   });
 }
 // uploadForm.addEventListener('submit', async (e) => {
