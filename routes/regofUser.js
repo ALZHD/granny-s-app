@@ -12,15 +12,13 @@ router.route('/').get((req, res) => {
 router
   .route('/signup')
   // Страница регистрации пользователя
-<<<<<<< HEAD
   .get((req, res) => res.render('index'))
   // Регистрация пользователя
-=======
-  // Регистрация пользователяnpm
->>>>>>> 65fb1062bf9c054d742d7712e46eb9bce73662d4
   .post(async (req, res) => {
     // console.log(req.body);
-    const { name, pass, email, secret, role } = req.body;
+    const {
+      name, pass, email, secret, role,
+    } = req.body;
     try {
       // Мы не храним пароль в БД, только его хэш
       // console.log(password);
@@ -67,7 +65,8 @@ router
       // Пытаемся сначала найти пользователя в БД
       const user = await User.findOne({ where: { email } });
       if (!user) {
-        return res.sendStatus(501);
+        console.log(123);
+        return res.status(501).json({ isFail: 'Такой бабушки или внучки нет!' });
       }
       // Сравниваем хэш в БД с хэшем введённого пароля
       if (await bcrypt.compare(pass, user.pass)) {
@@ -77,7 +76,10 @@ router
         // было res.send({})
         return res.send({ message: 'ok' });
       }
+
+      return res.status(501).json({ isFail: 'Не верный пароль!' });
     } catch (err) {
+      console.log(123);
       logger.error(err);
       return res.status(501).json({ isFail: 'Не верный логин или пароль' });
     }
