@@ -5,17 +5,18 @@ const { User } = require('../db/models');
 const logger = console;
 const router = require('express').Router();
 
-// router.route('/signup').post((req, res) => {
-// });
+router.route('/').get((req, res) => {
+  res.render('index')
+});
 
 router
   .route('/signup')
-  // Страница регистрации пользователя
-  .get((req, res) => res.render('index'))
   // Регистрация пользователя
-  .post(async (req, res) => {
+ .post(async (req, res) => {
     // console.log(req.body);
-    const { name, pass, email, secret, role } = req.body;
+    const {
+      name, pass, email, secret, role,
+    } = req.body;
     try {
       // Мы не храним пароль в БД, только его хэш
       // console.log(password);
@@ -42,11 +43,11 @@ router
       });
       req.session.name = user.name;
       req.session.role = user.role;
+      return res.send({});
     } catch (err) {
       logger.error(err);
       return res.status(501).json({ isFail: 'Непредвиденная ошибка' });
     }
-    return res.status(200);
   });
 
 router
@@ -67,7 +68,8 @@ router
       if (await bcrypt.compare(pass, user.pass)) {
         req.session.name = user.name;
         req.session.role = user.role;
-        return res.sendStatus(200);
+        // return res.sendStatus(200);
+        return res.send({});
       }
     } catch (err) {
       logger.error(err);
