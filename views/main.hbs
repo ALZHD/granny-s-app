@@ -17,12 +17,12 @@
 
 <div data-container class='row'>
     {{#each allPictures}}
-    <div class='col'>
+    <div data-col class ='col'>
         <div class='card' style='width: 18rem;'>
             <img src={{this.url}} class='card-img-top' alt={{this.id}} />
             <div class='card-body'>
                 <h5 class='card-title'>{{this.text}}</h5>
-                <button data-id={{this.id}} type='button' class='btn btn-danger'>Delete</button>
+                <button data-bla={{this.id}} type='button' class='btn btn-danger'>Delete</button>
             </div>
         </div>
     </div>
