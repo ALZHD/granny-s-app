@@ -1,11 +1,24 @@
+<<<<<<< HEAD
+{{!-- <form name='uploadForm'> 
+<input name="image" type="file"/> <button type="submit">Загрузить картинку</button>
+</form> --}}
+
+
+<form name='uploadForm'>
+=======
 <form name='postform'>
+>>>>>>> 65fb1062bf9c054d742d7712e46eb9bce73662d4
     <div class='mb-3'>
         <label for='text' class='form-label'>Text</label>
         <input name='text' type='text' class='form-control' id='text' aria-describedby='emailHelp' />
     </div>
     <div class='mb-3'>
         <label for='title' class='form-label'>Image</label>
+<<<<<<< HEAD
+       <input name="image" type="file"/> <button type="submit">Загрузить картинку</button>
+=======
         <input name='url' type='text' class='form-control' id='img' aria-describedby='emailHelp' />
+>>>>>>> 65fb1062bf9c054d742d7712e46eb9bce73662d4
     </div>
     <button type='submit' class='btn btn-primary'>Submit</button>
 </form>
@@ -15,7 +28,10 @@
     <div class='col'>
         <div class='card' style='width: 18rem;'>
             <img src={{this.url}} class='card-img-top' alt={{this.id}} />
+<<<<<<< HEAD
+=======
             {{!-- <p>{{this.text}}</p> --}}
+>>>>>>> 65fb1062bf9c054d742d7712e46eb9bce73662d4
             <div class='card-body'>
                 <h5 class='card-title'>{{this.text}}</h5>
                 <button data-id={{this.id}} type='button' class='btn btn-danger'>Delete</button>
@@ -23,4 +39,10 @@
         </div>
     </div>
     {{/each}}
+<<<<<<< HEAD
 </div>
+
+{{!-- <script defer src="/upload.js"></script> --}}
+=======
+</div>
+>>>>>>> 65fb1062bf9c054d742d7712e46eb9bce73662d4

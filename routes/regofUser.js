@@ -12,7 +12,12 @@ router.route('/').get((req, res) => {
 router
   .route('/signup')
   // Страница регистрации пользователя
+<<<<<<< HEAD
+  .get((req, res) => res.render('index'))
+  // Регистрация пользователя
+=======
   // Регистрация пользователяnpm
+>>>>>>> 65fb1062bf9c054d742d7712e46eb9bce73662d4
   .post(async (req, res) => {
     // console.log(req.body);
     const { name, pass, email, secret, role } = req.body;
@@ -42,6 +47,7 @@ router
       });
       req.session.name = user.name;
       req.session.role = user.role;
+      req.session.id = user.id;
       return res.send({});
     } catch (err) {
       logger.error(err);
@@ -68,7 +74,8 @@ router
         req.session.name = user.name;
         req.session.role = user.role;
         // return res.sendStatus(200);
-        return res.send({});
+        // было res.send({})
+        return res.send({ message: 'ok' });
       }
     } catch (err) {
       logger.error(err);
