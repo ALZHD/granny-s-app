@@ -5,13 +5,12 @@ const { User } = require('../db/models');
 const logger = console;
 const router = require('express').Router();
 
-// router.route('/signup').post((req, res) => {
-// });
+router.route('/').get((req, res) => {
+  res.render('index')
+});
 
 router
   .route('/signup')
-  // Страница регистрации пользователя
-  .get((req, res) => res.render('index'))
   // Регистрация пользователя
  .post(async (req, res) => {
     // console.log(req.body);
