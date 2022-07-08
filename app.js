@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const express = require('express');
 const hbs = require('hbs');
 require('dotenv').config();
@@ -7,19 +6,8 @@ const session = require('express-session');
 const sessionFileStore = require('session-file-store');
 const regofUser = require('./routes/regofUser');
 const uploadRouter = require('./routes/uploadRouter');
-=======
-const express = require('express'); 
-const hbs = require('hbs'); 
-require('dotenv').config(); 
-const path = require('path'); 
-const regofUser = require('./routes/regofUser');
-const indexRouter = require('./routes/index.router');
-const pictureRouter = require('./routes/pictures.router');
 
-const app = express(); 
-const session = require('express-session')
-const sessionFileStore = require('session-file-store')
->>>>>>> 65fb1062bf9c054d742d7712e46eb9bce73662d4
+const app = express();
 
 const FileStore = sessionFileStore(session);
 // app.set('views', path.join(__dirname, 'views'));

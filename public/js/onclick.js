@@ -32,11 +32,11 @@ if (x) {
     const result = await response.json();
 
     if (response.ok) {
-      console.log(1);
+      // console.log(1);
       window.location.href = '/main';
     } else {
-      console.log(result);
-      // alert(`ошибка:${result.isFail}`);
+      // console.log(result);
+      alert(`ошибка:${result.isFail}`);
     }
   });
 }
@@ -57,8 +57,8 @@ if (y) {
       console.log(1);
       window.location.href = '/main';
     } else {
-      console.log(result);
-      // alert(`ошибка:${result.isFail}`);
+      console.log(2);
+      alert(`ошибка:${result.isFail}`);
     }
   });
 }
