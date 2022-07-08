@@ -45,7 +45,7 @@ router
       });
       req.session.name = user.name;
       req.session.role = user.role;
-      req.session.id = user.id;
+      req.session.user_id = user.id;
       return res.send({});
     } catch (err) {
       logger.error(err);
