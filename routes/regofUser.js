@@ -6,17 +6,16 @@ const logger = console;
 const router = require('express').Router();
 
 router.route('/').get((req, res) => {
-  res.render('index')
+  res.render('index');
 });
 
 router
   .route('/signup')
-  // Регистрация пользователя
- .post(async (req, res) => {
+  // Страница регистрации пользователя
+  // Регистрация пользователяnpm
+  .post(async (req, res) => {
     // console.log(req.body);
-    const {
-      name, pass, email, secret, role,
-    } = req.body;
+    const { name, pass, email, secret, role } = req.body;
     try {
       // Мы не храним пароль в БД, только его хэш
       // console.log(password);
@@ -78,7 +77,7 @@ router
     // return res.end();
   });
 
-router.get('/signout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.session.destroy();
   res.clearCookie('user_sid');
   res.redirect('/');
