@@ -86,7 +86,7 @@ router
     // return res.end();
   });
 
-router.get('/signout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.session.destroy();
   res.clearCookie('user_sid');
   res.redirect('/');
