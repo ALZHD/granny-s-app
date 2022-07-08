@@ -2,9 +2,10 @@ const express = require('express');
 const hbs = require('hbs');
 require('dotenv').config();
 const path = require('path');
+const session = require('express-session');
+const sessionFileStore = require('session-file-store');
 const regofUser = require('./routes/regofUser');
-const session = require('express-session')
-const sessionFileStore = require('session-file-store')
+const uploadRouter = require('./routes/uploadRouter');
 
 const app = express();
 const FileStore = sessionFileStore(session);
@@ -14,22 +15,20 @@ hbs.registerPartials(path.join(process.env.PWD, 'views', 'partials'));
 
 app.use(express.urlencoded({ extended: true })); // чтобы парсить форма
 app.use(express.json()); // чтобы парсить json
-app.use(session({
-  name: app.get('session cookie name'),
-  secret: process.env.SESSION_SECRET,
-  store: new FileStore({
-    // Шифрование сессии
-    secret: process.env.SESSION_SECRET,
-  }),
-  // Если true, сохраняет сессию, даже если она не поменялась
-  resave: false,
-  // Если false, куки появляются только при установке req.session
-  saveUninitialized: false,
+const sessionConfig = {
+  name: 'user_sid', // Имя куки для хранения id сессии. По умолчанию - connect.sid
+  secret: process.env.SESSION_SECRET ?? 'blabla', // Секретное слово для шифрования, может быть любым
+  store: new FileStore(),
+  resave: false, // Пересохранять ли куку при каждом запросе
+  saveUninitialized: false, // Создавать ли сессию без инициализации ключей в req.session
   cookie: {
-    // В продакшне нужно "secure: true" для HTTPS
-    secure: process.env.NODE_ENV === 'production',
+    // maxAge: 10000,
+    maxAge: 1000 * 60 * 60 * 12, // Срок истечения годности куки в миллисекундах
+    httpOnly: true, // Серверная установка и удаление куки, по умолчанию true
   },
-}));
+};
+
+app.use(session(sessionConfig));
 app.use(express.static(path.join(__dirname, 'public')));
 const PORT = process.env.PORT || 3001;
 
@@ -38,4 +37,5 @@ app.get('/', (req, res) => {
 });
 
 app.use('/', regofUser);
+app.use('/main', uploadRouter);
 app.listen(PORT, () => console.log(`Connection on PORT: ${PORT}`));

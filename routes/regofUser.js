@@ -13,7 +13,7 @@ router
   // Страница регистрации пользователя
   .get((req, res) => res.render('index'))
   // Регистрация пользователя
- .post(async (req, res) => {
+  .post(async (req, res) => {
     // console.log(req.body);
     const {
       name, pass, email, secret, role,
@@ -44,6 +44,7 @@ router
       });
       req.session.name = user.name;
       req.session.role = user.role;
+      req.session.id = user.id;
       return res.send({});
     } catch (err) {
       logger.error(err);
@@ -70,7 +71,8 @@ router
         req.session.name = user.name;
         req.session.role = user.role;
         // return res.sendStatus(200);
-        return res.send({});
+        // было res.send({})
+        return res.send({ message: 'ok' });
       }
     } catch (err) {
       logger.error(err);
