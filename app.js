@@ -6,6 +6,7 @@ const session = require('express-session');
 const sessionFileStore = require('session-file-store');
 const regofUser = require('./routes/regofUser');
 const uploadRouter = require('./routes/uploadRouter');
+const listenRouter = require('./routes/listenRouter');
 
 const app = express();
 
@@ -39,4 +40,5 @@ const PORT = process.env.PORT || 3001;
 
 app.use('/', regofUser);
 app.use('/main', uploadRouter);
+app.use('/listen', listenRouter);
 app.listen(PORT, () => console.log(`Connection on PORT: ${PORT}`));
